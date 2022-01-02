@@ -7,16 +7,13 @@ package model;
 
 import java.sql.*;
 
-/**
- *
- * @author silviacb
- */
+
 public class ConnectionFactory {
     public Connection getConnection() {
         try {
-           Class.forName("com.mysql.jdbc.Driver");
+           Class.forName("com.mysql.cj.jdbc.Driver");
            String urlBD="jdbc:mysql://localhost:3306/bd";
-           return DriverManager.getConnection(urlBD, "root", "");
+           return DriverManager.getConnection(urlBD, "meri", "@Teste@1");
         } catch (SQLException e) {
             System.out.println("Exceção SQL - ConnectionFactory");
         } catch(ClassNotFoundException e){
@@ -24,4 +21,12 @@ public class ConnectionFactory {
         }
         return null;
     }
+    
+    public static void main(String args[]) throws ClassNotFoundException, SQLException{  
+
+        Class.forName("com.mysql.cj.jdbc.Driver");  
+        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bd?serverTimezone=UTC","meri","@Teste@1");  
+            System.out.println("tentando conexao");  
+    }
+    
 }

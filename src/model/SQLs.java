@@ -1,7 +1,7 @@
 package model;
 
 public enum SQLs {
-    LOGIN("SELECT * FROM usuario WHERE email = ? AND senha = ?"),
+    LOGIN("SELECT * FROM usuario WHERE email = ? "),
     INSERT_PRODUTO("INSERT INTO produto(nome, valorUnitario) VALUES (?, ?)"),
     INSERT_LIVRO("INSERT INTO livro(nome, valorUnitario, autor, ano, numPaginas) VALUES (?, ?, ?, ?, ?)"),
     LISTALL_LIVRO("SELECT * FROM livro"),
