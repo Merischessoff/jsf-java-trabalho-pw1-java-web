@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastrando Vestuario</title>
+    </h:head>
+    <h:body style="background-color: gray; background-image: linear-gradient(to right, gray, white);">
+		<h:outputStylesheet library="css" name="estilo.css"/>
+		<div style="height: 10em; position: relative;">
+			<h:form style="margin: 0; position: absolute; top: 80%; left: 50%; margin-right: -50%;  transform: translate(-50%, -50%);" >
+				<br></br>
+				<h:panelGrid columns="1" style="top: 20%;">
+					<p:messages id="mensagem" showDetail="false" showSummary="true" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" />
+				</h:panelGrid>
+	            <p:fieldset legend="Cadastro">
+		            <p:panelGrid columns="4">
+		                    <p:outputLabel value="Nome: "/>
+		                    <p:inputText id="nome" value="#{vestuarioBean.vestuario.nome}" required="true" requiredMessage="Campo nome é obrigatório." label="nome"> 
+		                    	<f:validateLength minimum="5" maximum="50" />
+                        		<f:validateRegex pattern="[a-zA-Z ]+" />
+		                    </p:inputText>
+		                    <p:outputLabel value="Valor Unitário: "/>
+		                    <p:inputNumber id="valorUnitario" value="#{vestuarioBean.vestuario.valorUnitario}" required="true" requiredMessage="Campo valor unitário é obrigatório." label="valorUnitario"> 
+		                    	<f:validateLength minimum="2" maximum="5" />
+		                    </p:inputNumber>
+		                    <p:outputLabel value="Categoria: "/>
+		                    <p:inputText id="categoria" value="#{vestuarioBean.vestuario.categoria}" required="true" requiredMessage="Campo categoria é obrigatório." label="categoria"> 
+		                    	<f:validateLength minimum="5" maximum="25" />
+                        		<f:validateRegex pattern="[a-zA-Z ]+" />
+		                    </p:inputText>
+		                    <p:outputLabel value="Gênero: "/>
+		                    <p:inputText id="genero" value="#{vestuarioBean.vestuario.genero}" required="true" requiredMessage="Campo gênero é obrigatório." label="genero"> 
+		                    	<f:validateLength minimum="5" maximum="25" />
+                        		<f:validateRegex pattern="[a-zA-Z ]+" />
+		                    </p:inputText>
+		                    <p:outputLabel value="Tamanho: "/>
+		                    <p:inputText id="tamanho" value="#{vestuarioBean.vestuario.tamanho}" required="true" requiredMessage="Campo tamanho é obrigatório." label="tamanho"> 
+		                    	<f:validateLength minimum="5" maximum="25" />
+                        		<f:validateRegex pattern="[a-zA-Z ]+" />
+		                    </p:inputText>
+		                    <p:commandButton value="Cadastrar" action="#{vestuarioBean.cadastrar()}"  ajax="false"/>		               
+		            </p:panelGrid>
+		            <p:panelGrid columns="4">
+		                <p:linkButton outcome="menu" value="Menu"/>
+		            </p:panelGrid>
+	            </p:fieldset>
+	        </h:form>
+	    </div>
+    </h:body>
+</html>
+

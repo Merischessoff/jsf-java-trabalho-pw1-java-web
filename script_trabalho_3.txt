@@ -1,0 +1,62 @@
+
+CREATE DATABASE bd;
+
+use bd;
+
+CREATE TABLE usuario (
+  email varchar(20),
+  senha varchar(20)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE funcionario
+  MODIFY id_func int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+INSERT INTO funcionario(login_func, senha_func) VALUES('meridiane', 'teste');
+
+CREATE TABLE produto(
+  codigoProduto int(11) NOT NULL,
+  nome varchar(50)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE produto
+  ADD PRIMARY KEY (codigoProduto);
+
+ALTER TABLE produto
+  MODIFY codigoProduto int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE livro (
+  codigoProduto int(11) NOT NULL,
+  nome varchar(50),
+  valorUnitario numeric(5),
+  autor varchar(25),
+  ano int(5),
+  numPaginas int(5)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE livro
+  ADD PRIMARY KEY (codigoProduto);
+
+ALTER TABLE livro
+  MODIFY codigoProduto int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE vestuario (
+  codigoProduto int(11) NOT NULL,
+  nome varchar(50),
+  valorUnitario numeric(5),
+  categoria varchar(25),
+  genero varchar(25),
+  tamanho varchar(25)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE vestuario
+  ADD PRIMARY KEY (codigoProduto);
+
+ALTER TABLE vestuario
+  MODIFY codigoProduto int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+
+

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Login</title>
+</h:head>
+<h:body style="background-color: gray; background-image: linear-gradient(to right, gray, white);">
+	<div style="height: 10em; position: relative;">
+		<h:form style="margin: 0; position: absolute; top: 80%; left: 50%; margin-right: -50%;  transform: translate(-50%, -50%);" >
+			<h:panelGrid columns="1" style="top: 20%;">
+				<p:messages id="mensagem" showDetail="false" showSummary="true" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" />
+			</h:panelGrid>
+			<p:fieldset legend="Login">
+				<h:panelGrid columns="1">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="Email " />
+						<p:inputText id="email" value="#{usuarioBean.usuario.email}" required="true" requiredMessage="Campo e-mail." label="email">
+						</p:inputText>
+						<h:outputLabel value="Senha: " />
+						<p:inputText id="senha" value="#{usuarioBean.usuario.senha}" required="true" requiredMessage="Campo senha é obrigatório." label="senha">
+						</p:inputText>
+						<p:commandButton value="Ok" action="#{usuarioBean.logar()}" ajax="false"></p:commandButton>
+					</h:panelGrid>
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+	</div>
+</h:body>
+</html>

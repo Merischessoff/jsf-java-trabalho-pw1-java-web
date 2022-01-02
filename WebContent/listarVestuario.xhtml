@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listar e outras ações</title>
+        <script type="text/javascript">
+	        function excluir() {
+	            if (confirm("Deseja confirmar essa operação?")) {
+	                return true;
+	            } else {
+	                return false;
+	            }
+	        }
+        </script>
+
+    </h:head>
+    <h:body style="background-color: gray; background-image: linear-gradient(to right, gray, white);">
+        <div style="height: 10em; position: relative;">
+			<h:form style="margin: 0; position: absolute; top: 100%; left: 50%; margin-right: -50%;  transform: translate(-50%, -50%);" >
+	        	<h:panelGrid columns="1">
+					<p:messages id="mensagem" showDetail="false" showSummary="true" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" />
+				</h:panelGrid>
+	            <h:outputStylesheet library="css" name="estilo.css"/>
+	             <p:fieldset legend="Lista de vestuarios">        
+	                    <p:panelGrid columns="1">
+	                        <p:dataTable border="1" value="#{vestuarioBean.lista}" var="vestuarioLista">
+	                            <p:column>
+	                                <f:facet name="header">Nome</f:facet>
+	                                    #{vestuarioLista.nome}
+	                            </p:column>
+	                            <p:column>
+	                                <f:facet name="header">Valor Unitário</f:facet>
+	                                    #{vestuarioLista.valorUnitario}
+	                            </p:column>
+	                            <p:column>
+	                                <f:facet name="header">Categoria</f:facet>
+	                                    #{vestuarioLista.categoria}
+	                            </p:column>
+	                            <p:column>
+	                                <f:facet name="header">Gênero</f:facet>
+	                                    #{vestuarioLista.genero}
+	                            </p:column>
+	                            <p:column>
+	                                <f:facet name="header">Tamanho</f:facet>
+	                                    #{vestuarioLista.tamanho}
+	                            </p:column>
+	                            <p:column>
+	                                <h:commandButton value="Excluir" action="#{vestuarioBean.excluir(vestuarioLista)}"  onclick="return excluir()"/>
+	                            </p:column>
+	                            <p:column>
+	                                <h:commandButton value="Editar" action="#{vestuarioBean.editar(vestuarioLista)}"/>
+	                            </p:column>
+	                        </p:dataTable>
+	                    </p:panelGrid>
+	                    <p:panelGrid columns="4">
+		                	<p:linkButton outcome="menu" value="Menu"/>
+		            	</p:panelGrid>
+	             </p:fieldset>
+	        </h:form>
+        </div>
+    </h:body>
+</html>
+

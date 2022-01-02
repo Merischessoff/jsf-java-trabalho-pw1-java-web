@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Editando Livro</title>
+</h:head>
+	<h:body style="background-color: gray; background-image: linear-gradient(to right, gray, white);">
+		<h:outputStylesheet library="css" name="estilo.css"/>
+		<div style="height: 10em; position: relative;">
+			<h:form style="margin: 0; position: absolute; top: 80%; left: 50%; margin-right: -50%;  transform: translate(-50%, -50%);" >
+				<br></br>
+				<h:panelGrid columns="1" style="top: 20%;">
+					<p:messages id="mensagem" showDetail="false" showSummary="true" errorStyle="color: red" infoStyle="color: green" warnStyle="color: orange" fatalStyle="color: gray" />
+				</h:panelGrid>
+	            <p:fieldset legend="Editar">
+					<p:panelGrid columns="4">
+						<p:outputLabel value="Nome: #{livroBean.livro.nome}"/>
+						<br></br>
+						<br></br>
+		                <p:outputLabel value="Valor Unitário: "/>
+		            	<p:inputNumber id="valorUnitario" value="#{livroBean.livro.valorUnitario}" required="true" requiredMessage="Campo valor unitário é obrigatório." label="valorUnitario"> 
+		                	<f:validateLength minimum="2" maximum="5" />
+		                </p:inputNumber>
+		                <p:outputLabel value="Autor: "/>
+		                <p:inputText id="autor" value="#{livroBean.livro.autor}" required="true" requiredMessage="Campo valor unitário é obrigatório." label="autor"> 
+		                	<f:validateLength minimum="5" maximum="25" />
+                        	<f:validateRegex pattern="[a-zA-Z ]+" />
+		                </p:inputText>
+		                <p:outputLabel value="Ano: "/>
+		                <p:inputText id="ano" value="#{livroBean.livro.ano}" required="true" requiredMessage="Campo ano é obrigatório." label="ano"> 
+		                	<f:validateLength minimum="4" maximum="4" />
+		                </p:inputText>
+		                <p:outputLabel value="Número de páginas: "/>
+		                <p:inputText id="numPaginas" value="#{livroBean.livro.numPaginas}" required="true" requiredMessage="Campo número de páginas é obrigatório." label="numPaginas"> 
+		                	<f:validateLength minimum="2" maximum="3" />
+		                </p:inputText>
+						<p:commandButton value="Atualizar livro" action="#{livroBean.atualizar(livroBean.livro)}" ajax="false"/>
+					</p:panelGrid>
+					<p:panelGrid columns="4">
+		            	<p:linkButton outcome="listarLivro" value="Listar Livros"/>
+		           	</p:panelGrid>
+				</p:fieldset>
+		</h:form>
+	</div>
+</h:body>
+</html>
+
